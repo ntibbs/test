@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+	</head>
+	<body>
+		<canvas id="c" width="200" height="200"></canvas>
+
+		<script>
+			var c = document.querySelector("#c");
+			var ctx = c.getContext("2d");
+
+			var image = new Image();
+
+			image.onload = function() {
+				console.log("Loaded image");
+				ctx.drawImage(image, 0, 0, c.width, c.height);
+				var savedImage = c.toDataURL();
+				window.open(savedImage);
+			}
+
+			image.src = "http://static.gamespot.com/uploads/original/1534/15343359/2364671-world-of-warcraft-logo.jpg";
+
+			ctx.beginPath();
+			ctx.moveTo(300,300);
+			ctx.lineTo(300,400);
+			ctx.lineTo(400,400);
+			ctx.lineTo(400,300);
+			ctx.lineTo(300,300);
+			ctx.stroke();
+
+			ctx.moveTo(325,325);
+			ctx.lineTo(375,375);
+			ctx.lineTo(375,325);
+			ctx.lineTo(375,375);
+			ctx.fill();
+
+		</script>
+	</body>
+</html>
+
+
+// filleRect(); is a filled is a rectangle and fillStyle sets color
+// strokeRect(); is for an empty rectangle. clearRect does the same thing
+// ctx.beginPath(); would start the "pen" idea
+// ctx.moveTo(); would move the "pen" to that location
+// ctx.lineTo(); would draw a line to that location from current location
+// ctx.fill(); would fill in that shape i just drew
+// ctx.stroke(); would outline the object the i just drew
+
+
+
